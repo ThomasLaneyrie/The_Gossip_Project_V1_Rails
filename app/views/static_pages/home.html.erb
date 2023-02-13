@@ -1,0 +1,64 @@
+<header> 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Gossip-Bar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <a class="nav-link" <%= link_to "La Dream Team", team_path %> </a> 
+        </li>
+        <li>
+          <a class="nav-link" <%= link_to "Contactez-nous", contact_path %> </a>    
+        </li>
+      </ul>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</header>
+
+
+<body class>
+  <div class="m-3">
+    <h2> Bienvenue à la page d'accueil du Gossip Project </h2><br/>
+
+    <div class="row m-1">
+      <% @gossips.each_with_index do |gossip, index| %>
+        <div class = "col">
+          <div class="card mb-3 p-3" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Potin "<%= gossip.title %>"</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <p> </p>
+              </ul>
+            <div class="btn btn-dark link-light">
+                <%= link_to "Le gossip en détails !!", show_path(gossip) %> 
+            </div>
+          </div>
+        </div>
+    </div>
+      <% end %>
+  </div>
+
+
+
+      <% @gossips.each_with_index do |gossip, index| %>
+        <p>
+          Potin n°<%= gossip.id %>
+          <ul>
+            <li>Auteur : <%= gossip.user.first_name %></li>
+            <li>Contenu : <%= gossip.title %></li>
+            <li> <%= link_to "Le gossip en détails !!", show_path(gossip) %> </li> 
+          </ul>
+        </p>
+      <% end %>
+  </div>
+</body>
