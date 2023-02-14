@@ -1,34 +1,10 @@
-<header> 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Gossip-Bar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <a class="nav-link" <%= link_to "Home", home_path %> </a>
-        </li>
-        <li>
-          <a class="nav-link" <%= link_to "La Dream Team", team_path %> </a> 
-        </li>
-        <li>
-          <a class="nav-link" <%= link_to "Contactez-nous", contact_path %> </a>    
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
 <h2>Informations sur l'auteur !</h2>
 <p>Nom : <%=@user.first_name%> <%= @user.last_name %> </p>
 <p>Nombre de potins réalisés : <%= @user.gossips.count %> </p>
 <p> Lien vers ses potins <% @user.gossips.each do |gossip| %> </p>
 
-
 <ul>
-  <li> <%=gossip.title%> -> <%= link_to "Par ici", show_path(gossip) %>  </li>
+  <li> <%=gossip.title%> -> <%= link_to "Par ici", gossip_path(gossip) %>  </li>
 </ul>
 
 <% end %>

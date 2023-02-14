@@ -1,0 +1,31 @@
+<h1> Création d'un nouveau Gossip ! </h1>
+
+<% flash.each do |name, msg| %>
+  <div class="alert alert-danger" role="alert"> <%= msg %> </div>
+<% end %>
+
+<%# 1er essais en HTML pas concluant, après j'ai vu que la consigne demandait de faire du form_tag. Ci-dessous manque la clé token %>
+<%# <div class="m-3">
+  <form action= "" method="POST">   
+    <p>Titre du nouveau Gossip : <input type="string" name="title"></p>       
+    <p>Contenu du nouveau Gossip : <input type="text" name="content"></p>      
+    <p>  <input type="submit" value="Envoyer le formulaire"></p> 
+  </form>
+</div> %>
+
+
+<%# Form_tag %>
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+
+  <%= label_tag 'Titre du gossip :' %>
+  <%= text_field_tag 'title', @gossip.title %>
+  <br /> <br />
+
+  <%= label_tag 'Contenu du gossip :' %>
+  <%= text_field_tag 'content', @gossip.content %>
+  <br /> <br />
+
+  <%= submit_tag "Créer mon nouveau Gossip" %>
+<% end %>
+

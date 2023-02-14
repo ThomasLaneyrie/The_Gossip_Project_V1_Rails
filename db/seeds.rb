@@ -22,7 +22,7 @@ end
   
 30.times do |index|
   User.create(
-    first_name: Faker::Name.first_name, 
+    first_name: Faker::Name.first_name[3..14], 
     last_name: Faker::Name.last_name,
     description: Faker::Superhero.name,
     email: "#{["Kachou", "Champion78", "Victime83", "Toto"].sample}@#{["gmail.com", "yahoo.fr" , "lycos.fr", "wanadoo.fr", "laposte.net"].sample}",
